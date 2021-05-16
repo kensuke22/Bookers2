@@ -1,11 +1,32 @@
 <h1>User info</h1>
 
-<div>
-    <li>name</li>
-    <li>introduction</li>
-</div>
+<%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg" %>
+<table class="table">
+    <tbody>
+    <tr></tr>
+    <tr>
+        <th>name</th>
+        <th><%= @user.name %></th>
+    </tr>
+    <tr>
+        <th>introduction</th>
+        <th><%= @user.introduction %></th>
+    </tr>
+    </tbody>
+</table>
 
-<%= link_to "edit", edit_user_path %>
+    <% if @user.id == current_user.id %>
+    <div>
+        
+        <%= link_to "", edit_user_path(@user), class:"btn btn-outline-secondary btn-block fas fa-user-cog" %>
+        
+    </div>
+    <% end %>
+ 
+
+
+
+
 
 <h1>New book</h1>
 <%= form_with model: @user, local:true do |f| %>
