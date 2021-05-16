@@ -1,8 +1,26 @@
-<h1>Book detail</h1>
 
-<%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg" %>
 
-<%= @book.title %>
 
-<%= @book.body %>
 
+<div class="col-md-8 offset-md-1">
+  
+<h2>Book detail</h2>
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>
+            <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg" %>
+            <p><%= link_to @book.user.name, user_path(@book.user)%></p>
+          </td>
+          
+          <td><%= @book.title %></td>
+          
+          <td><%= @book.body %></td>
+          <td><%= link_to "Edit", edit_book_path(@book), class:"btn btn-sm btn-success" %></td>
+          
+          <td><%= link_to "Destroy", book_path(@book), class:"btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
