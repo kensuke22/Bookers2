@@ -1,5 +1,10 @@
 
-
+<div class="container px-5 px-sm-0">
+  <%= render 'books/error', book: @book %>
+  <div class="row">
+    <div class="col-md-3">
+<%= render 'users/list', user: @current %>
+<%= render 'books/list', book: @create %>
 
 
 <div class="col-md-8 offset-md-1">
@@ -17,10 +22,12 @@
           <td><%= @book.title %></td>
           
           <td><%= @book.body %></td>
+           <% if @book.user == current_user %>
           <td><%= link_to "Edit", edit_book_path(@book), class:"btn btn-sm btn-success" %></td>
           
           <td><%= link_to "Destroy", book_path(@book), class:"btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+          <% end %>        
         </tr>
       </tbody>
     </table>
-</div>
+ </div>
