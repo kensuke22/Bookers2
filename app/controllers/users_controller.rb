@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     @user = current_user
@@ -16,7 +15,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     if @user != current_user
-      redirect_to users_path, alert:'error'
+      redirect_to user_path(current_user.id), alert:'error'
     end
   end
 
