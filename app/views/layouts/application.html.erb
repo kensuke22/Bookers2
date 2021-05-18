@@ -16,13 +16,13 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand">
-            <span><%= link_to "Bookers", root_path, class:" text-light" %></span>
-          </a>
+          <a class="navbar-brand" href="/">
+            <span>Bookers</span>
+            </a>
 
           <div class="navbar-collapse collapse " id="navbarNavDropdown" style>
            <ul class="navbar-nav ml-auto">
-            <% if user_signed_in? %>
+        <% if user_signed_in? %>
           <li>
             <%= link_to "Home", user_path(current_user.id), class:"fas fa-home nav-link text-light" %>
           </li>
@@ -51,9 +51,9 @@
           </li>
         <% end %>
         </ul>
-        </nav>
         </div>
       </div>
+    </nav>
   </header>
 
   <main>
